@@ -10,11 +10,11 @@ app.use(express.json());
 
 app.post('/send', async (req, res) => {
   try {
-    const { serverPw, email, password, to, subject, text } = req.body;
+    const { serverPw, to, subject, text } = req.body;
 
     if (serverPw !== process.env.SERVER_PASS) return res.sendStatus(401);
 
-    await gmailCall(email, password, to, subject, text);
+    await gmailCall(to, subject, text);
 
     // const qbResponse = await qbCall();
 
