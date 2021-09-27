@@ -19,7 +19,8 @@ app.post('/send', async (req, res) => {
 
     return res.sendStatus(200);
   } catch (err) {
-    return res.sendStatus(400);
+    console.log(err);
+    return res.status(400).send(err);
   }
 });
 
