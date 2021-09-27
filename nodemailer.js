@@ -9,5 +9,5 @@ module.exports = (to, subject, text) => nodemailer.createTransport({
     pass: process.env.PASSWORD,
   },
 }).sendMail({
-  to, from: process.env.EMAIL, subject, text,
+  to, from: process.env.EMAIL, subject, text, html: text,
 });
