@@ -11,7 +11,7 @@ app.post('/send', async (req, res) => {
       serverPw, to, subject, text,
     } = req.body;
 
-    const validTo = to.replace(';', ',');
+    const validTo = to.slice(0, to.length).replace(';', ',');
 
     console.log(validTo);
 
