@@ -11,15 +11,14 @@ app.post('/send', async (req, res) => {
       serverPw, to, subject, text,
     } = req.body;
 
-    const validTo = to.slice(1, to.length).replace(';', ',');
-
     if (serverPw !== process.env.SERVER_PASS) return res.sendStatus(401);
+
+    const validTo = to.slice(1, to.length).replace(';', ',');
 
     await gmailCall(validTo, subject, text);
 
     return res.sendStatus(200);
   } catch (err) {
-    console.log(err);
     return res.status(400).send(err);
   }
 });
