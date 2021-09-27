@@ -4,6 +4,7 @@ const gmailCall = require('./nodemailer');
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded());
 
 app.get('/send/:serverPw/:to/:subject/:text', async (req, res) => {
   try {
