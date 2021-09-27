@@ -5,11 +5,11 @@ const app = express();
 
 app.use(express.json());
 
-app.post('/send', async (req, res) => {
+app.get('/send/:serverPw/:to/:subject/:text', async (req, res) => {
   try {
     const {
       serverPw, to, subject, text,
-    } = req.body;
+    } = req.params;
 
     const validTo = to.slice(1, to.length).replace(';', ',');
 
