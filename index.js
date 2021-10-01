@@ -13,7 +13,7 @@ app.post('/send', async (req, res) => {
 
     if (serverPw !== process.env.SERVER_PASS) return res.sendStatus(401);
 
-    const validTo = to.replaceAll(';', ',');
+    const validTo = to.replace(/;/g, ',');
 
     await gmailCall(validTo, subject, text);
 
